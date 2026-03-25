@@ -16,10 +16,11 @@ interface CreateLaneInput {
 
 export async function createLane(input: CreateLaneInput) {
   const carrier = await carrierRepo.getCarrierById(input.carrierId)
+  const carrierRaw = carrier as unknown as { gdp_certified?: boolean } | null
 
   const riskScore = calculateRiskScore({
     temperatureDeviations: 0,
-    carrierGdpCertified: carrier?.gdp_certified ?? false,
+    carrierGdpCertified: carrierRaw?.gdp_certified ?? false,
     productType: input.productType,
     routeDistance: 5000,
     currentDeviation: false,
