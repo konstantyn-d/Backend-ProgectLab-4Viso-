@@ -14,6 +14,9 @@
     "type": "git",
     "url": "git+https://github.com/konstantyn-d/Backend-ProgectLab-4Viso-.git"
   },
+  "engines": {
+    "node": ">=20.0.0"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
