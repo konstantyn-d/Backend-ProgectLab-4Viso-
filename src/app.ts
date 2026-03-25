@@ -9,7 +9,10 @@ import routes from './routes'
 const app = express()
 
 app.use(helmet())
-app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }))
+app.use(cors({
+  origin: env.CORS_ORIGIN.split(',').map((o) => o.trim()),
+  credentials: true,
+}))
 app.use(express.json())
 app.use(morgan('short'))
 
